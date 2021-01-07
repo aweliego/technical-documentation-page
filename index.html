@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technical Documentation Page</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div id="container">
+      <nav id="navbar">
+        <header>
+          <h1>Javascript arrays</h1>
+        </header>
+        <ul>
+          <li>
+            <a href="#What_is_an_array?" class="nav-link">What is an array?</a>
+          </li>
+          <li>
+            <a href="#Creating_arrays" class="nav-link">Creating arrays</a>
+          </li>
+          <li>
+            <a href="#Accessing_and_modifying_array_items" class="nav-link"
+              >Accessing and modifying array items</a
+            >
+          </li>
+          <li><a href="#Array_length" class="nav-link">Array length</a></li>
+          <li><a href="#split()" class="nav-link">split()</a></li>
+          <li><a href="#join()" class="nav-link">join()</a></li>
+          <li><a href="#toString()" class="nav-link">toString()</a></li>
+          <li><a href="#push()" class="nav-link">push()</a></li>
+          <li>
+            <a href="#pop()" class="nav-link">pop()</a>
+          </li>
+          <li><a href="#reference" class="nav-link">Reference</a></li>
+        </ul>
+      </nav>
+      <main id="main-doc">
+        <section class="main-section" id="What_is_an_array?">
+          <header>
+            <h2>What is an array?</h2>
+          </header>
+          <p>
+            Arrays are generally described as "list-like objects"; they are
+            basically single objects that contain multiple values stored in a
+            list. Array objects can be stored in variables and dealt with in
+            much the same way as any other type of value, the difference being
+            that we can access each value inside the list individually, and do
+            super useful and efficient things with the list, like loop through
+            it and do the same thing to every value. Maybe we've got a series of
+            product items and their prices stored in an array, and we want to
+            loop through them all and print them out on an invoice, while
+            totaling all the prices together and printing out the total price at
+            the bottom.
+          </p>
+          <p>
+            If we didn't have arrays, we'd have to store every item in a
+            separate variable, then call the code that does the printing and
+            adding separately for each item. This would be much longer to write
+            out, less efficient, and more error-prone.
+          </p>
+        </section>
+        <section class="main-section" id="Creating_arrays">
+          <header>
+            <h2>Creating arrays</h2>
+          </header>
+          <p>
+            Arrays consist of square brackets and elements that are separated by
+            commas.
+          </p>
+          <ol>
+            <li>
+              Suppose we want to store a shopping list in an array. Paste the
+              following code into the console:
+            </li>
+            <div class="code-block">
+              <code
+                >let shopping = ['bread', 'milk', 'cheese', 'hummus',
+                'noodles']; shopping;</code
+              >
+            </div>
+            <li>
+              In the above example, each element is a string, but in an array we
+              can store various data types — strings, numbers, objects, and even
+              other arrays. We can also mix data types in a single array — we do
+              not have to limit ourselves to storing only numbers in one array,
+              and in another only strings. For example:
+            </li>
+            <div class="code-block">
+              <code
+                >let sequence = [1, 1, 2, 3, 5, 8, 13];<br />
+                let random = ['tree', 795, [0, 1, 2]];</code
+              >
+            </div>
+          </ol>
+        </section>
+        <section class="main-section" id="Accessing_and_modifying_array_items">
+          <header>
+            <h2>Accessing and modifying array items</h2>
+          </header>
+          <p>
+            You can then access individual items in the array using bracket
+            notation, in the same way that you accessed the letters in a string.
+          </p>
+          <ol>
+            <li>Enter the following into your console:</li>
+            <div class="code-block">
+              <code
+                >shopping[0];<br />
+                // returns "bread"</code
+              >
+            </div>
+            <li>
+              You can also modify an item in an array by giving a single array
+              item a new value. Try this:
+            </li>
+            <div class="code-block">
+              <code
+                >shopping[0] = 'tahini'; <br />
+                shopping; <br />
+                // shopping will now return [ "tahini", "milk", "cheese",
+                "hummus", "noodles" ]</code
+              >
+            </div>
+            <li>
+              Note that an array inside an array is called a multidimensional
+              array. You can access an item inside an array that is itself
+              inside another array by chaining two sets of square brackets
+              together. For example, to access one of the items inside the array
+              that is the third item inside the random array (see previous
+              section), we could do something like this:
+            </li>
+            <div class="code-block"><code>random[2][2];</code></div>
+          </ol>
+        </section>
+        <section class="main-section" id="Array_length">
+          <header>
+            <h2>Array length</h2>
+          </header>
+          <p>
+            You can find out the length of an array (how many items are in it)
+            in exactly the same way as you find out the length (in characters)
+            of a string — by using the length property. Try the following:
+          </p>
+          <div class="code-block">
+            <code
+              >shopping.length; <br />
+              // should return 5</code
+            >
+          </div>
+
+          <p>
+            This has other uses, but it is most commonly used to tell a loop to
+            keep going until it has looped through all the items in an array. So
+            for example:
+          </p>
+          <div class="code-block">
+            <code
+              >let sequence = [1, 1, 2, 3, 5, 8, 13]; <br />
+              for (let i = 0; i < sequence.length; i++) { <br />
+              console.log(sequence[i]); <br />
+              }</code
+            >
+          </div>
+          <p>Briefly, this code is saying:</p>
+          <ol>
+            <li>Start looping at item number 0 in the array.</li>
+            <li>
+              Stop looping at the item number equal to the length of the array.
+              This works for an array of any length, but in this case it stops
+              looping at item number 7 (this is good, as the last item — which
+              we want the loop to include — is item 6).
+            </li>
+            <li>
+              For each item, print it out to the browser console with
+              <span class="code">console.log()</span>.
+            </li>
+          </ol>
+        </section>
+        <section class="main-section" id="split()">
+          <header>
+            <h2>split()</h2>
+          </header>
+          <p>
+            Often you'll be presented with some raw data contained in a big long
+            string, and you might want to separate the useful items out into a
+            more useful form and then do things to them, like display them in a
+            data table. To do this, we can use the
+            <span class="code">split()</span> method. In its simplest form, this
+            takes a single parameter, the character you want to separate the
+            string at, and returns the substrings between the separator as items
+            in an array.
+          </p>
+          <ol>
+            <li>
+              Let's play with this, to see how it works. First, create a string
+              in your console:
+            </li>
+            <div class="code-block">
+              <code
+                >let myData = 'Manchester, London, Liverpool, Birmingham, Leeds,
+                Carlisle';
+              </code>
+            </div>
+
+            <li>Now let's split it at each comma:</li>
+            <div class="code-block">
+              <code
+                >let myArray = myData.split(','); <br />
+                myArray;</code
+              >
+            </div>
+          </ol>
+        </section>
+        <section class="main-section" id="join()">
+          <header>
+            <h2>join()</h2>
+          </header>
+          <p>
+            The <span class="code">join()</span> method creates and returns a
+            new string by concatenating all of the elements in an array (or an
+            array-like object), separated by commas or a specified separator
+            string. If the array has only one item, then that item will be
+            returned without using the separator.
+          </p>
+          <p>Using the example from the previous section, try the following:</p>
+          <div class="code-block">
+            <code
+              >let myNewString = myArray.join(','); <br />
+              myNewString;</code
+            >
+          </div>
+        </section>
+        <section class="main-section" id="toString()">
+          <header>
+            <h2>toString()</h2>
+          </header>
+          <p>
+            The <span class="code">toString()</span> method returns a string
+            representing the specified array and its elements.
+            <span class="code">toString()</span> is arguably simpler than join()
+            to convert an array to a string as it doesn't take a parameter, but
+            more limiting. With <span class="code">join()</span> you can specify
+            different separators, whereas
+            <span class="code">toString()</span> always uses a comma.
+          </p>
+          <div class="code-block">
+            <code
+              >let dogNames = ['Rocket','Flash','Bella','Slugger']; <br />
+              dogNames.toString(); // Rocket,Flash,Bella,Slugger</code
+            >
+          </div>
+        </section>
+        <section class="main-section" id="push()">
+          <header>
+            <h2>push()</h2>
+          </header>
+          <p>
+            The <span class="code">push()</span> method adds one or more
+            elements to the end of an array and returns the new length of the
+            array.
+          </p>
+          <ol>
+            <li>
+              Include one or more items that you want to add to the end of your
+              array. Try this:
+            </li>
+            <div class="code-block">
+              <code
+                >myArray.push('Cardiff'); <br />
+                myArray; <br />
+                myArray.push('Bradford', 'Brighton'); <br />
+                myArray;</code
+              >
+            </div>
+            <li>
+              The new length of the array is returned when the method call
+              completes. If you wanted to store the new array length in a
+              variable, you could do something like this:
+            </li>
+            <div class="code-block">
+              <code
+                >let newLength = myArray.push('Bristol'); <br />
+                myArray; <br />
+                newLength;</code
+              >
+            </div>
+          </ol>
+        </section>
+        <section class="main-section" id="pop()">
+          <header>
+            <h2>pop()</h2>
+          </header>
+          <p>
+            The <span class="code">pop()</span> method removes the last element
+            from an array and returns that element. This method changes the
+            length of the array.
+          </p>
+          <ol>
+            <li>Try this:</li>
+            <div class="code-block"><code>myArray.pop();</code></div>
+            <li>
+              The item that was removed is returned when the method call
+              completes. To save that item in a new variable, you could do this:
+            </li>
+            <div class="code-block">
+              <code
+                >let removedItem = myArray.pop(); <br />
+                myArray; <br />
+                removedItem;</code
+              >
+            </div>
+          </ol>
+        </section>
+        <section class="main-section" id="reference">
+          <header>
+            <h2>Reference</h2>
+          </header>
+          <p>
+            All the documentation in this page is taken from
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Arrays#Some_useful_array_methods"
+              >MDN</a
+            >.
+          </p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
