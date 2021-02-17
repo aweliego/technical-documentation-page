@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-size: 18px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -37,7 +41,6 @@ body {
 
 #navbar li {
   list-style-type: none;
-  padding: 20px 30px;
   font-size: 16px;
   border-top: 1px solid lightgray;
 }
@@ -46,6 +49,8 @@ body {
   text-decoration: none;
   color: rgb(82, 74, 74);
   overflow-wrap: break-word;
+  display: block;
+  padding: 20px 30px;
 }
 
 ul > li:hover {
