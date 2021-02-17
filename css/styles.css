@@ -135,7 +135,7 @@ ol > li {
     width: 100%;
   }
 
-  #navbar li {
+  #navbar a {
     padding: 5px 15px;
   }
 
